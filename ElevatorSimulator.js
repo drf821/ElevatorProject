@@ -94,19 +94,7 @@ function handleUserInput(value) {
         outputEl.innerHTML += `<br>Please wait for the elevator to arrive.`;
         return;
     }
-    if(value === "accelerate" || value === "a"){
-        if(accelerate === 10){
-            accelerate = 1;
-            outputEl.innerHTML += `<br>Elevator moving at normal speed.`;
-            timer = timer * 10;
-        }
-        else{
-            accelerate = 10;
-            outputEl.innerHTML += `<br>Elevator now moving at 10* speed.`;
-            timer = timer / 10;
-        }
-        return;
-    }
+   
     if (isNaN(floor)) {
         outputEl.innerHTML += `<br>"${value}" is not a valid floor number.`;
         return;
@@ -186,14 +174,14 @@ function moveElevator(newFloor){
 
 function updateElevatorPosition(){
     if(elevator.y > newY){
-        elevator.y -= 18.75 /(600 / accelerate);
+        elevator.y -= 18.75 /(6);
         elevatorState = "Going Up";
-        timer += 1/60;
+        timer += 1/6;
     }
     else if(elevator.y < newY){
-        elevator.y += 18.75 /(600 / accelerate);
+        elevator.y += 18.75 /(6);
         elevatorState = "Going Down";
-        timer += 1/60;
+        timer += 1/6;
     }
     else if(elevator.y === newY){
         if(elevatorState !== "Idle"){
@@ -213,8 +201,8 @@ function getYForFloor(floor) {
 
 function outputStateChange(timer, floor){
     const outputEl = document.getElementById("output-container");
-    outputEl.innerHTML += `<br>Travel Time: ${timer.toFixed(1)*10} Seconds.` 
+    outputEl.innerHTML += `<br>Travel Time: ${timer.toFixed(1)*100} Seconds.` 
     + `<br>Arrived At Floor Number ${floor.toFixed(0)}.`
-    + `<br>Total Travel Time: ${totalTime.toFixed(1)*10} Seconds.`
+    + `<br>Total Travel Time: ${totalTime.toFixed(1)*100} Seconds.`
     + `<br>Floors Traveled: ${floorsTraveled}.`;
 }
