@@ -54,7 +54,7 @@ function create(){
     elevator = this.physics.add.sprite(400, 609.375, 'elevator');
     elevator.setCollideWorldBounds(true); // we'll handle bounds manually
     camera = this.cameras.main; // Reference to the main camera
-    outputEl.innerHTML += `Enter a start floor number.<br>Enter "a" to accelerate the elevator.`;
+    outputEl.innerHTML += `Enter a start floor number.`;
     elevatorState = "Idle";
     gameScene = this;
     cursors = this.input.keyboard.createCursorKeys();
