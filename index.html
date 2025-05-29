@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elevator Project</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Elevator Project</h1>
+        <div id="main-layout">
+            <div id="elevator-container">
+                    <div id="elevator-grid"></div>
+            </div>
+            <div id="info-panel">
+                <div class="panel-box" id="input-container">
+                     <input type="text" id="user-input" placeholder="Enter a floor number and hit Enter" size="27">
+                </div>
+                <pre class="panel-box" id="output-container"></pre>
+                
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+        <script src="ElevatorSimulator.js"></script>
+    </body>
+</html>
