@@ -213,6 +213,8 @@ function getYForFloor(floor) {
 
 function outputStateChange(timer, floor){
     const outputEl = document.getElementById("output-container");
-    outputEl.innerHTML += `<br>Total Travel Time: ${timer.toFixed(1)} Seconds.<br>Arrived at floor number ${floor.toFixed(0)}.`;
-
+    outputEl.innerHTML += `<br>Travel Time: ${timer.toFixed(1)*10} Seconds.` 
+    + `<br>Arrived At Floor Number ${floor.toFixed(0)}.`
+    + `<br>Total Travel Time: ${totalTime.toFixed(1)*10} Seconds.`
+    + `<br>Floors Traveled: ${floorsTraveled}.`;
 }
