@@ -38,7 +38,6 @@ let elevator;
 let newY;
 let timer;
 let isStart = true;
-let accelerate = 1;
 
 const FLOOR_COUNT = 32;
 const FLOOR_HEIGHT = 18.75; 
