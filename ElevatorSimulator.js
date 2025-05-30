@@ -172,6 +172,8 @@ function moveElevator(newFloor){
     else{
         floor = newFloor;
         newY = getYForFloor(newFloor);
+        floorsTraveled += `, ${floor}`;
+
     }
 }
 
@@ -191,7 +193,6 @@ function updateElevatorPosition(){
     else if(elevator.y === newY){
         if(elevatorState !== "Idle"){
             outputStateChange(timer, floor);
-            floorsTraveled += `, ${floor}`;
         }
         elevatorState = "Idle";
         timer = 0;
