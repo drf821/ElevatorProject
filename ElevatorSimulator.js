@@ -37,7 +37,9 @@ let floor = null;
 let elevator;
 let newY;
 let timer;
+let totalTime;
 let isStart = true;
+let floorsTraveled = '';
 
 const FLOOR_COUNT = 32;
 const FLOOR_HEIGHT = 18.75; 
@@ -61,6 +63,7 @@ function create(){
     
     gameScene = this;
     timer = 0;
+    totalTime = 0;
     newY = elevator.y;
 
     drawSceneGrid(this);
@@ -105,6 +108,7 @@ function handleUserInput(value) {
     }
     if(isStart === true){
         outputEl.innerHTML += `<br>Starting on floor ${floor}.`;
+        floorsTraveled = `${floor}`;
         isStart = false; 
     }
     else{
@@ -176,17 +180,21 @@ function updateElevatorPosition(){
         elevator.y -= 18.75 /(6);
         elevatorState = "Going Up";
         timer += 1/6;
+        totalTime += 1/6;
     }
     else if(elevator.y < newY){
         elevator.y += 18.75 /(6);
         elevatorState = "Going Down";
         timer += 1/6;
+        totalTime += 1/6;
     }
     else if(elevator.y === newY){
         if(elevatorState !== "Idle"){
             outputStateChange(timer, floor);
         }
         elevatorState = "Idle";
+        floorsTraveled += `, ${floor}`;
+        timer = 0;
     }
 }
 
