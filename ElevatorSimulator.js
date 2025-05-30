@@ -191,9 +191,9 @@ function updateElevatorPosition(){
     else if(elevator.y === newY){
         if(elevatorState !== "Idle"){
             outputStateChange(timer, floor);
+            floorsTraveled += `, ${floor}`;
         }
         elevatorState = "Idle";
-        floorsTraveled += `, ${floor}`;
         timer = 0;
     }
 }
@@ -208,8 +208,8 @@ function getYForFloor(floor) {
 
 function outputStateChange(timer, floor){
     const outputEl = document.getElementById("output-container");
-    outputEl.innerHTML += `<br>Travel Time: ${timer.toFixed(1)*100} Seconds.` 
+    outputEl.innerHTML += `<br>Travel Time: ${timer.toFixed(1)*10} Seconds.` 
     + `<br>Arrived At Floor Number ${floor.toFixed(0)}.`
-    + `<br>Total Travel Time: ${totalTime.toFixed(1)*100} Seconds.`
+    + `<br>Total Travel Time: ${totalTime.toFixed(1)*10} Seconds.`
     + `<br>Floors Traveled: ${floorsTraveled}.`;
 }
